@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+
+  --color-midnight-base: #080F26;
+  --color-midnight-sub: #0B1430;
+  --color-midnight-deep: #0D1733;
+  --color-midnight-card: #101B39;
+  --color-electric-blue: #65A9FF;
+  --color-icy-blue: #B7D5FF;
+  --color-pure-white: #F4F6FF;
+  --color-muted-blue: #A8B6D8;
+  --color-subtle-border: rgba(150, 180, 255, 0.15);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background-color: #080F26;
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #080F26;
+  color: #F4F6FF;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080F26;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(101, 169, 255, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(101, 169, 255, 0.5);
+}
+
+/* Typography utilities */
+.font-heading {
+  font-family: 'Space Grotesk', sans-serif;
+}
+.font-serif-italic {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+}
+
+/* Glassmorphism surfaces */
+.glass-surface {
+  background: rgba(16, 27, 57, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(150, 180, 255, 0.15);
+}
+
+.glass-surface-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-surface-hover:hover {
+  background: rgba(16, 27, 57, 0.85);
+  border-color: rgba(101, 169, 255, 0.35);
+  box-shadow: 0 10px 40px -10px rgba(101, 169, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+.glass-pill {
+  background: rgba(13, 23, 51, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(150, 180, 255, 0.18);
+}
+
+/* Glow effects */
+.glow-blue-sm {
+  box-shadow: 0 0 20px rgba(101, 169, 255, 0.2);
+}
+.glow-blue-md {
+  box-shadow: 0 0 45px rgba(101, 169, 255, 0.28);
+}
+.glow-blue-lg {
+  box-shadow: 0 0 80px rgba(101, 169, 255, 0.35);
+}
+.text-glow {
+  text-shadow: 0 0 30px rgba(101, 169, 255, 0.5);
+}
+
+/* Stardust film grain effect */
+.bg-stardust {
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, rgba(183, 213, 255, 0.7), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 40px 70px, rgba(244, 246, 255, 0.6), rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 90px 40px, rgba(101, 169, 255, 0.8), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 160px 120px, rgba(183, 213, 255, 0.6), rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 230px 190px, rgba(244, 246, 255, 0.8), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 290px 80px, rgba(101, 169, 255, 0.7), rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 350px 350px;
+}
+
+/* Keyframes for subtle ambient animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@keyframes waveBar {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 16px;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+/* Clip path text reveal */
+.clip-reveal {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
